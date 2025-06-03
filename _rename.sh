@@ -43,11 +43,11 @@ echo "Replacing \"$SEARCH_ORIGINAL\" with \"$REPLACE_ORIGINAL\""
 REPLACE_SLUG=$(echo "$PLUGIN_NAME_ARG" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
 echo "Replacing \"$SEARCH_SLUG\" with \"$REPLACE_SLUG\""
 
-# 3. PascalCase Name (remove spaces, capitalize each word - assuming input is Title Case)
+# 3. PascalCase Name (remove spaces, capitalize each word - assuming input is Title Case, with words after hyphens also capitalized before the hyphen is removed)
 # Example: "FooBar"
 # This simple version just removes spaces. For more complex PascalCase conversion from various inputs,
 # a more sophisticated approach might be needed, but this matches the user's example.
-REPLACE_PASCAL=$(echo "$PLUGIN_NAME_ARG" | sed 's/ //g')
+REPLACE_PASCAL=$(echo "$PLUGIN_NAME_ARG" | sed -E 's/(^|[- ])([a-z])/\U\2/g; s/[- ]//g')
 echo "Replacing \"$SEARCH_PASCAL\" with \"$REPLACE_PASCAL\""
 
 echo ""
