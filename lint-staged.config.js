@@ -1,5 +1,5 @@
 /**
- * @type {import('lint-staged').Configuration}
+ * @type {import('lint-staged', { with: { 'resolution-mode': 'import' } }).Configuration}
  */
 const config = {
 	'*.{js,ts,mjs}': [ 'npx wp-scripts lint-js', () => 'npx tsc' ],
