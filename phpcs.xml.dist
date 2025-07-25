@@ -2,8 +2,12 @@
 <ruleset name="wp-plugin-template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 	<config name="text_domain" value="wp-plugin-template"/>
 
+	<rule ref="vendor/wpackagist-plugin/plugin-check/vendor/plugin-check/phpcs-sniffs/PluginCheck/ruleset.xml" />
+	<!-- TODO: Once a new version of Plugin Check is released, replace the following line with a reference to vendor/wpackagist-plugin/plugin-check/vendor/plugin-check/phpcs-rulesets/plugin-check.ruleset.xml -->
+	<rule ref="tools/phpcs/plugin-check.ruleset.xml" />
+
 	<rule ref="PHPCompatibility"/>
-	<config name="testVersion" value="8.1-"/>
+	<config name="testVersion" value="7.2-"/>
 
 	<rule ref="WordPress-Docs"/>
 	<rule ref="WordPress-Extra" />

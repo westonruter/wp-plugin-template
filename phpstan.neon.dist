@@ -6,3 +6,5 @@ parameters:
 	excludePaths:
 		- vendor
 		- node_modules
+	bootstrapFiles:
+		- tools/phpstan/constants.php

@@ -23,4 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // @codeCoverageIgnore
 }
 
+const VERSION = '0.1.0';
+
 // TODO: Add code.
