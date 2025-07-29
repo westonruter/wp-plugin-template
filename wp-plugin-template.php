@@ -1,5 +1,13 @@
 <?php
 /**
+ * WP Plugin Template Plugin for WordPress
+ *
+ * @package   WPPluginTemplate
+ * @author    Weston Ruter
+ * @license   GPL-2.0-or-later
+ * @copyright Copyleft 2025, Weston Ruter
+ *
+ * @wordpress-plugin
  * Plugin Name: WP Plugin Template
  * Plugin URI: https://github.com/westonruter/wp-plugin-template
  * Description: ...
@@ -13,8 +21,6 @@
  * Update URI: https://github.com/westonruter/wp-plugin-template
  * GitHub Plugin URI: https://github.com/westonruter/wp-plugin-template
  * Primary Branch: main
- *
- * @package WPPluginTemplate
  */
 
 namespace WPPluginTemplate;
@@ -23,6 +29,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // @codeCoverageIgnore
 }
 
+/**
+ * Plugin version.
+ *
+ * @var string
+ */
 const VERSION = '0.1.0';
 
 // TODO: Add code.
