@@ -1,5 +1,8 @@
 # WP Plugin Template
 
+<!-- markdownlint-disable-next-line no-inline-html -->
+<img src=".wordpress-org/banner.svg" alt="Banner for the WP Plugin Template plugin" width="1544" height="500">
+
 Plugin description up to 150 characters goes here.
 
 **Contributors:** [westonruter](https://profile.wordpress.org/westonruter)  
