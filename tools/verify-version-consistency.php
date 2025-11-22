@@ -62,8 +62,8 @@ if ( ! preg_match( '/\*\s*Version:\s*(?P<version>\d+\.\d+(?:.\d+)?(-\w+)?)/', $p
 }
 $versions['plugin_metadata'] = $matches['version'];
 
-if ( ! preg_match( '/const VERSION = \'(?P<version>[^\']+)\'/', $plugin_file, $matches ) ) {
-	echo "Could not find version in VERSION constant.\n";
+if ( ! preg_match( '/const (?:PLUGIN_)?VERSION = \'(?P<version>[^\']+)\'/', $plugin_file, $matches ) ) {
+	echo "Could not find version in PLUGIN_VERSION/VERSION constant.\n";
 	exit( 1 );
 }
 $versions['version_constant'] = $matches['version'];
