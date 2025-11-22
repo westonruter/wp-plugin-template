@@ -43,10 +43,10 @@ if ( preg_match( '/^### (?P<latest>\d.+)/', $first_changelog_line, $matches ) ) 
 
 $bootstrap_file = null;
 foreach ( (array) glob( __DIR__ . '/../*.php' ) as $php_file ) {
-	echo "$php_file\n";
 	$php_file_contents = (string) file_get_contents( (string) $php_file );
 	if ( preg_match( '/^ \* Plugin Name\s*:/im', $php_file_contents ) ) {
 		$bootstrap_file = (string) $php_file;
+		echo "Located bootstrap file: $bootstrap_file\n";
 		break;
 	}
 }
