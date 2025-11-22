@@ -23,7 +23,6 @@ Plugin description up to 150 characters goes here.
 1. Visit **Plugins > Add New** in the WordPress Admin.
 2. Search for **WP Plugin Template**.
 3. Install and activate the **WP Plugin Template** plugin.
-4. Log out of WordPress and log back in with the “Remember Me” checkbox checked.
 
 You may also install and update via [Git Updater](https://git-updater.com/) using the [plugin's GitHub URL](https://github.com/westonruter/wp-plugin-template).
 
