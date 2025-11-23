@@ -1,7 +1,12 @@
 {
 	"name": "wp-plugin-template",
+	"private": true,
 	"author": "Weston Ruter",
 	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"wordpress-plugin"
+	],
 	"prettier": "@wordpress/prettier-config",
 	"homepage": "https://github.com/westonruter/wp-plugin-template",
 	"repository": "https://github.com/westonruter/wp-plugin-template",
