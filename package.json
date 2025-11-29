@@ -19,6 +19,7 @@
 	},
 	"scripts": {
 		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses",
 		"format": "wp-scripts format --ignore-path=.gitignore && npm run lint:js:fix && npm run lint:css:fix && composer phpcbf && composer normalize",
 		"lint": "tsc && npm run lint:js && npm run lint:css && composer phpstan && npm run lint:php && npm run lint:composer && npm run transform-readme",
 		"lint:composer": "composer normalize --dry-run",
@@ -32,6 +33,7 @@
 		"lint:php": "composer phpcs",
 		"lint:php:fix": "composer phpcbf",
 		"packages-update": "wp-scripts packages-update",
+		"lint:pkg-json": "wp-scripts lint-pkg-json . --ignorePath .gitignore",
 		"plugin-zip": "npm run transform-readme && git archive --format=zip --output=wp-plugin-template.zip --add-file readme.txt HEAD && zip wp-plugin-template.zip -d README.md",
 		"prepare": "husky",
 		"transform-readme": "php tools/transform-readme.php",
