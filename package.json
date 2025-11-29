@@ -1,5 +1,7 @@
 {
 	"name": "wp-plugin-template",
+	"version": "0.1.0",
+	"description": "Yet another boilerplate/template for creating WordPress plugins.",
 	"private": true,
 	"author": "Weston Ruter",
 	"license": "GPL-2.0-or-later",
