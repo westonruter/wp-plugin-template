@@ -39,6 +39,7 @@ if ( preg_match( '/^### (?P<latest>\d.+)/', $first_changelog_line, $matches ) ) 
 	echo "Notice: The full changelog appears to not be part of the readme. It may be external: {$matches[0]}\n";
 } else {
 	echo "Could not identify first item of changelog in readme.\n";
+	exit( 1 );
 }
 
 $bootstrap_file = null;
