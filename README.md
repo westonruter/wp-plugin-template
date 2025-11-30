@@ -7,7 +7,7 @@ Plugin description up to 150 characters goes here.
 
 **Contributors:** [westonruter](https://profile.wordpress.org/westonruter)  
 **Tags:**         performance  
-**Tested up to:** 6.8  
+**Tested up to:** 6.9  
 **Stable tag:**   0.1.0  
 **License:**      [GPLv2 or later](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
