@@ -14,7 +14,7 @@ Plugin description up to 150 characters goes here.
 ## Description
 
 > [!TIP]
-> After cloning this repo, run `./_rename.sh "My Plugin Name"` which will update the name and slugs, and then delete the `_rename.sh` file.
+> After cloning this repo, run `./tools/rename.sh "My Plugin Name"` which will update the name and slugs, and then delete this `rename.sh` file.
 
 ## Installation
 
