@@ -53,7 +53,7 @@ echo "Replacing \"$SEARCH_PASCAL\" with \"$REPLACE_PASCAL\""
 
 # 4. snake_case Name
 # Example: "foo_bar"
-REPLACE_SNAKE=$(echo "$PLUGIN_NAME_ARG" | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g' | sed 's/[^a-z0-9-]//g')
+REPLACE_SNAKE=$(echo "$PLUGIN_NAME_ARG" | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g' | sed 's/[^a-z0-9_]//g')
 echo "Replacing \"$SEARCH_SNAKE\" with \"$REPLACE_SNAKE\""
 
 echo ""
@@ -83,7 +83,8 @@ else
         sed -i'' \
             -e "s#${SEARCH_ORIGINAL}#${REPLACE_ORIGINAL}#g" \
             -e "s#${SEARCH_SLUG}#${REPLACE_SLUG}#g" \
-            -e "s#${SEARCH_PASCAL}#${REPLACE_PASCAL}#g" "$file"
+            -e "s#${SEARCH_PASCAL}#${REPLACE_PASCAL}#g" "$file" \
+            -e "s#${SEARCH_SNAKE}#${REPLACE_SNAKE}#g" "$file"
     done < "$TEMP_FILE_LIST"
 fi
 
