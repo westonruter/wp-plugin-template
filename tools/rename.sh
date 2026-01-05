@@ -16,6 +16,7 @@ set -o pipefail
 SEARCH_ORIGINAL="WP Plugin Template"
 SEARCH_SLUG="wp-plugin-template"
 SEARCH_PASCAL="WPPluginTemplate"
+SEARCH_SNAKE="wp_plugin_template"
 
 # --- Script Logic ---
 
@@ -50,6 +51,11 @@ echo "Replacing \"$SEARCH_SLUG\" with \"$REPLACE_SLUG\""
 REPLACE_PASCAL=$(echo "$PLUGIN_NAME_ARG" | sed -E 's/(^|[- ])([a-z])/\U\2/g; s/[- ]//g')
 echo "Replacing \"$SEARCH_PASCAL\" with \"$REPLACE_PASCAL\""
 
+# 4. snake_case Name
+# Example: "foo_bar"
+REPLACE_SNAKE=$(echo "$PLUGIN_NAME_ARG" | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g' | sed 's/[^a-z0-9_]//g')
+echo "Replacing \"$SEARCH_SNAKE\" with \"$REPLACE_SNAKE\""
+
 echo ""
 echo "Searching for files to modify (excluding .git directory and this script)..."
 
@@ -77,7 +83,8 @@ else
         sed -i'' \
             -e "s#${SEARCH_ORIGINAL}#${REPLACE_ORIGINAL}#g" \
             -e "s#${SEARCH_SLUG}#${REPLACE_SLUG}#g" \
-            -e "s#${SEARCH_PASCAL}#${REPLACE_PASCAL}#g" "$file"
+            -e "s#${SEARCH_PASCAL}#${REPLACE_PASCAL}#g" \
+            -e "s#${SEARCH_SNAKE}#${REPLACE_SNAKE}#g" "$file"
     done < "$TEMP_FILE_LIST"
 fi
 
