@@ -83,7 +83,7 @@ else
         sed -i'' \
             -e "s#${SEARCH_ORIGINAL}#${REPLACE_ORIGINAL}#g" \
             -e "s#${SEARCH_SLUG}#${REPLACE_SLUG}#g" \
-            -e "s#${SEARCH_PASCAL}#${REPLACE_PASCAL}#g" "$file" \
+            -e "s#${SEARCH_PASCAL}#${REPLACE_PASCAL}#g" \
             -e "s#${SEARCH_SNAKE}#${REPLACE_SNAKE}#g" "$file"
     done < "$TEMP_FILE_LIST"
 fi
