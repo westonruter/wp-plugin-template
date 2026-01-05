@@ -71,4 +71,6 @@ jobs:
           wp-version: 'latest'
           build-dir: './build/'
           slug: ${{ steps.slug.outputs.slug }}
-          ignore-codes: 'readme_reserved_contributors'
+          # Note: Remove 'plugin_updater_detected' if this plugin is intended for the dotorg directory.
+          # Note: Add 'readme_reserved_contributors' if the plugin has wordpressdotorg as a contributor.
+          ignore-codes: 'plugin_updater_detected'
