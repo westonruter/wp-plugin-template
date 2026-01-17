@@ -38,8 +38,6 @@ npm install && composer install
 | `npm run lint:css`         | Lints CSS/SCSS files using Stylelint.                                    |
 | `npm run transform-readme` | Generates `readme.txt` from `README.md`.                                 |
 
-### Creating a New Plugin
-
 ## Codebase Structure
 
 * **`wp-plugin-template.php`**: The main plugin entry point. Contains headers and initialization logic.
