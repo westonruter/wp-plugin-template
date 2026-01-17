@@ -51,7 +51,7 @@ npm install && composer install
 ## Coding Conventions
 
 * **PHP:** Strictly adhere to [WordPress Coding Standards (WPCS)](https://github.com/WordPress/WordPress-Coding-Standards).
-* **JavaScript/TypeScript:** Follow [WordPress JavaScript coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/), except .
+* **JavaScript:** Follow [WordPress JavaScript coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/), except that Prettier formatting is used.
 * **CSS:** Follow [WordPress CSS coding standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
 * **Documentation:** Maintain `README.md` as the source of truth. The `readme.txt` file for the WordPress.org repository is generated automatically.
 * **Versioning:** Ensure version consistency across `package.json`, `composer.json`, and the main PHP file header. Use `npm run verify-version-consistency` to check.
