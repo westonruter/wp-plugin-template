@@ -1,5 +1,7 @@
 # WordPress Plugin Style Guide
 
+See also [AGENTS.md](../AGENTS.md).
+
 This style guide outlines the coding conventions for WordPress plugin code. In general, the [coding standards for WordPress](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/) should be followed:
 
 * [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/)
