@@ -29,7 +29,7 @@
 		"lint:css": "wp-scripts lint-style --allow-empty-input --ignore-path=.gitignore",
 		"lint:css:fix": "wp-scripts lint-style --fix",
 		"lint:js": "wp-scripts lint-js --ignore-path=.gitignore && tsc",
-		"lint:js:fix": "wp-scripts lint-js --fix",
+		"lint:js:fix": "wp-scripts lint-js --fix --ignore-path=.gitignore",
 		"lint:js:report": "npm run lint:js -- --output-file lint-js-report.json --format json .",
 		"lint:md": "wp-scripts lint-md-docs --ignore-path=.gitignore",
 		"lint:php": "composer phpcs",
