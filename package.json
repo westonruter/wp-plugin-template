@@ -27,7 +27,7 @@
 		"lint:composer": "composer normalize --dry-run && composer validate --strict --no-check-all",
 		"lint:composer:fix": "composer normalize",
 		"lint:css": "wp-scripts lint-style --allow-empty-input --ignore-path=.gitignore",
-		"lint:css:fix": "wp-scripts lint-style --fix",
+		"lint:css:fix": "wp-scripts lint-style --fix --allow-empty-input --ignore-path=.gitignore",
 		"lint:js": "wp-scripts lint-js --ignore-path=.gitignore && tsc",
 		"lint:js:fix": "wp-scripts lint-js --fix --ignore-path=.gitignore",
 		"lint:js:report": "npm run lint:js -- --output-file lint-js-report.json --format json .",
