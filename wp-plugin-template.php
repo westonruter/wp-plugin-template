@@ -11,7 +11,7 @@
  * Plugin Name: WP Plugin Template
  * Plugin URI: https://github.com/westonruter/wp-plugin-template
  * Description: ...
- * Requires at least: 6.8
+ * Requires at least: 6.9
  * Requires PHP: 7.4
  * Version: 0.1.0
  * Author: Weston Ruter
