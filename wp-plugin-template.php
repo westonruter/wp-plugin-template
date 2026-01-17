@@ -12,7 +12,7 @@
  * Plugin URI: https://github.com/westonruter/wp-plugin-template
  * Description: ...
  * Requires at least: 6.8
- * Requires PHP: 8.1
+ * Requires PHP: 7.4
  * Version: 0.1.0
  * Author: Weston Ruter
  * Author URI: https://weston.ruter.net/
