@@ -22,5 +22,4 @@ Add these secrets to repository's settings under **Security > Secrets and variab
 
 This workflow is triggered manually when accessing "Run workflow" from the workflow located on the Actions screen.
 
-The workflow requires two action secrets to be populated as required by [10up/action-wordpress-plugin-asset-update](https://github.com/10up/action-wordpress-plugin-deploy): `SVN_USERNAME` and `SVN_PASSWORD`. See the `deploy-dotorg.yml` section above. 
-
+The workflow requires two action secrets to be populated as required by [10up/action-wordpress-plugin-asset-update](https://github.com/10up/action-wordpress-plugin-deploy): `SVN_USERNAME` and `SVN_PASSWORD`. See the `deploy-dotorg.yml` section above.

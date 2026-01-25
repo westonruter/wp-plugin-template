@@ -9,6 +9,7 @@
 .nvmrc export-ignore
 .wordpress-org export-ignore
 AGENTS.md export-ignore
+blueprint-dev.json export-ignore
 composer.json export-ignore
 composer.lock export-ignore
 lint-staged.config.js export-ignore

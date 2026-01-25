@@ -17,14 +17,27 @@ jobs:
         permissions:
             contents: write
         steps:
+            - name: Check for SVN credentials
+              id: check-secrets
+              run: |
+                  if [ -z "${{ secrets.SVN_USERNAME }}" ] || [ -z "${{ secrets.SVN_PASSWORD }}" ]; then
+                      echo "SVN credentials not available. Skipping deployment."
+                      echo "skip=true" >> $GITHUB_OUTPUT
+                  else
+                      echo "skip=false" >> $GITHUB_OUTPUT
+                  fi
+
             - name: Checkout code
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
             - name: Read PHP version
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               id: php-version
               run: echo "version=$(jq -r .config.platform.php composer.json)" >> $GITHUB_OUTPUT
 
             - name: Setup PHP
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               uses: shivammathur/setup-php@44454db4f0199b8b9685a5d763dc37cbf79108e1 # 2.36.0
               with:
                   php-version: ${{ steps.php-version.outputs.version }}
@@ -33,6 +46,7 @@ jobs:
                   tools: composer:v2
 
             - name: Cache Composer dependencies
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
               with:
                   path: vendor
@@ -41,24 +55,30 @@ jobs:
                       ${{ runner.os }}-composer-
 
             - name: Install Composer dependencies
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               run: composer install --prefer-dist --no-progress
 
             - name: Setup Node.js
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
               with:
                   node-version-file: '.nvmrc'
                   cache: 'npm'
 
             - name: Install npm dependencies
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               run: npm ci
 
             - name: Verify version consistency
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               run: npm run verify-version-consistency
 
             - name: Prepare dist
+              if: steps.check-secrets.outputs.skip != 'true' || github.event_name == 'release'
               run: npm run plugin-zip && unzip *.zip -d dist
 
             - name: WordPress plugin deploy
+              if: steps.check-secrets.outputs.skip != 'true'
               uses: 10up/action-wordpress-plugin-deploy@54bd289b8525fd23a5c365ec369185f2966529c2 # 2.3.0
               id: deploy
               with:

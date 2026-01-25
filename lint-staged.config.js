@@ -2,7 +2,11 @@
  * @type {import('lint-staged', { with: { 'resolution-mode': 'import' } }).Configuration}
  */
 const config = {
-	'*.{js,ts,mjs}': [ 'npm run lint:js', () => 'npx tsc' ],
+	'*.{js,ts,mjs}': [
+		'wp-scripts lint-js --ignore-path=.gitignore',
+		() => 'npx tsc --allowJs --noEmit',
+	],
+	'**/*.json': [ 'npm run lint:json' ],
 	'*.css': [ 'npm run lint:css' ],
 	'composer.{json,lock}': [
 		() => 'composer validate --strict --no-check-all',

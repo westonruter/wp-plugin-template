@@ -11,6 +11,9 @@ Plugin description up to 150 characters goes here.
 **Stable tag:**   0.1.0  
 **License:**      [GPLv2 or later](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
+<!-- markdownlint-disable-next-line no-inline-html -->
+<a href="https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fwestonruter%2Fwp-plugin-template%2Fmain%2Fblueprint-dev.json"><img src=".wordpress-org/playground-preview-button.svg" alt="Try it in Playground" width="220" height="51"></a>
+
 ## Description
 
 > [!TIP]
