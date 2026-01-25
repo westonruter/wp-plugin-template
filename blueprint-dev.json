@@ -1,0 +1,31 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/",
+	"login": true,
+	"features": {
+		"networking": true
+	},
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"steps": [
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Testing WP Plugin Template"
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "url",
+				"url": "https://github.com/westonruter/wp-plugin-template/archive/main.zip"
+			},
+			"options": {
+				"activate": true,
+				"targetFolderName": "wp-plugin-template"
+			}
+		}
+	]
+}

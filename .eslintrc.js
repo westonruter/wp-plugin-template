@@ -12,6 +12,18 @@ const config = {
 	env: {
 		browser: true,
 	},
+	overrides: [
+		...( wpConfig?.overrides || [] ),
+		{
+			files: [ 'tools/**/*.js' ],
+			rules: {
+				'import/no-extraneous-dependencies': [
+					'error',
+					{ devDependencies: true },
+				],
+			},
+		},
+	],
 };
 
 module.exports = config;

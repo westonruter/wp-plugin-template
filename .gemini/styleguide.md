@@ -32,7 +32,7 @@ Every file, function, class, method constant, and global variable must have an a
 
 Whenever possible, the most specific PHP type hints should be used, when compatible with the minimum version of PHP supported by WordPress, unless the `testVersion` config in `phpcs.xml.dist` is higher.
 
-When native PHP type cannot be used, PHPStan's [PHPDoc Types](https://phpstan.org/writing-php-code/phpdoc-types) should be used, including not only the basic types but also subtypes like `non-empty-string`, [integer ranges](https://phpstan.org/writing-php-code/phpdoc-types#integer-ranges), [general arrays](https://phpstan.org/writing-php-code/phpdoc-types#general-arrays), and especially [array shapes](https://phpstan.org/writing-php-code/phpdoc-types#array-shapes). The types should comply with PHPStan's level 10. 
+When native PHP type cannot be used, PHPStan's [PHPDoc Types](https://phpstan.org/writing-php-code/phpdoc-types) should be used, including not only the basic types but also subtypes like `non-empty-string`, [integer ranges](https://phpstan.org/writing-php-code/phpdoc-types#integer-ranges), [general arrays](https://phpstan.org/writing-php-code/phpdoc-types#general-arrays), and especially [array shapes](https://phpstan.org/writing-php-code/phpdoc-types#array-shapes). The types should comply with PHPStan's level 10. Please note that `treatPhpDocTypesAsCertain` is set to `false`, so do not complain about redundant type checks.
 
 The one exception for using PHP types is whenever a function is used as a filter. Since plugins can supply any value at all when filtering, it is important for the filtered value to always be `mixed`. The first statement in the function in this case must always check the type, and if it is not the expected type, override it to be so. For example:
 
@@ -66,6 +66,6 @@ All PHP files should have a namespace which coincides with the `@package` tag in
 
 All JavaScript code should be written with JSDoc comments. All function parameters, return values, and other types should use [TypeScript in JSDoc](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html).
 
-JavaScript code is written using ES modules. This JS code must be runnable as-is without having to go through a build step, so it must be plain JavaScript and not TypeScript. The project _may_ also distribute minified versions of these JS files.
+JavaScript code is written using ES modules (except for node scripts which may use CommonJS modules). This JS code must be runnable as-is without having to go through a build step, so it must be plain JavaScript and not TypeScript. The project _may_ also distribute minified versions of these JS files.
 
 Never render HTML `script` markup directly. Always use the relevant APIs in WordPress for adding scripts, including `wp_enqueue_script()`, `wp_add_inline_script()`, `wp_localize_script()`, `wp_print_script_tag()`, `wp_print_inline_script_tag()`, `wp_enqueue_script_module()` among others. Since script modules are used, new scripts should normally have a `type="module"` when printing via `wp_print_inline_script_tag()` and when an external script is used, then `wp_enqueue_script_module()` is preferred.

@@ -127,6 +127,9 @@ jobs:
                   repo-token: '${{ secrets.GITHUB_TOKEN }}'
                   report-json: 'lint-js-report.json'
 
+            - name: Run JSON validation
+              run: npm run lint:json
+
             - name: Run CSS linter
               run: npm run lint:css
 

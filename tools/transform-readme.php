@@ -70,9 +70,33 @@ $readme_txt = (string) preg_replace_callback(
 // Transform the sections above the description.
 $readme_txt = (string) preg_replace_callback(
 	'/^.+?(?=## Description)/s',
-	static function ( $matches ) {
-		// Delete lines with images, linked images (badges), or comments.
-		$input = trim( (string) preg_replace( '/^(\[?!\[[^]]+?]\([^)]+?\)(](.+?))?|<img[^>]+?>|<!--.+?-->)$/m', '', $matches[0] ) );
+	static function ( array $matches ): string {
+		// Delete lines with links, images, linked images (badges), or comments.
+		$input = trim(
+			(string) preg_replace(
+				'~^(
+					# Markdown link.
+					\[[^]]+?]\([^)]+?\)
+					|
+					# Markdown image.
+					!\[[^]]+?]\([^)]+?\)
+					|
+					# Markdown image link.
+					\[!\[[^]]+?]\([^)]+?\)]\([^)]+?\)
+					|
+					# HTML image.
+					<img[^>]+?>
+					|
+					# HTML image link.
+					<a[^>]+?><img[^>]+?></a>
+					|
+					# HTML comment.
+					<!--.+?-->
+				)$~mx',
+				'',
+				$matches[0]
+			)
+		);
 
 		$parts = preg_split( '/\n\n+/', $input );
 
