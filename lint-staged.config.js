@@ -3,7 +3,7 @@
  */
 const config = {
 	'*.{js,ts,mjs}': [
-		'wp-scripts lint-js --ignore-path=.gitignore',
+		'wp-scripts lint-js',
 		() => 'npx tsc --allowJs --noEmit',
 	],
 	'**/*.json': [ 'npm run lint:json' ],
