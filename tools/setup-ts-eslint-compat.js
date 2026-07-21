@@ -28,7 +28,10 @@ const typescriptLegacyDir = path.join(
 );
 
 if ( ! fs.existsSync( typescriptLegacyDir ) ) {
-	// typescript-legacy not installed, skip silently.
+	// typescript-legacy not installed; log a warning so developers know the shim is skipped.
+	process.stderr.write(
+		'[setup-ts-eslint-compat] Warning: typescript-legacy not installed; skipping TypeScript 6 compatibility shim setup.\n'
+	);
 	process.exit( 0 );
 }
 
@@ -67,8 +70,10 @@ for ( const target of targets ) {
 		fs.mkdirSync( targetDir, { recursive: true } );
 	}
 
-	const relativeSource = path.relative( targetDir, typescriptLegacyDir );
-	fs.symlinkSync( relativeSource, target, 'junction' );
+	// Use absolute path for the symlink target. Windows junctions require absolute paths,
+	// and it is also more robust across different platforms.
+	const symlinkType = process.platform === 'win32' ? 'junction' : 'dir';
+	fs.symlinkSync( typescriptLegacyDir, target, symlinkType );
 	process.stdout.write(
 		`[setup-ts-eslint-compat] Symlinked TypeScript 6 to ${ path.relative(
 			root,
