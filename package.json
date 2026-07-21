@@ -22,7 +22,8 @@
 		"globals": "^17.7.0",
 		"husky": "^9",
 		"lint-staged": "^17",
-		"typescript": "^7"
+		"typescript": "^7",
+		"typescript-legacy": "npm:typescript@~6.0.3"
 	},
 	"scripts": {
 		"check-engines": "wp-scripts check-engines",
@@ -44,6 +45,7 @@
 		"lint:pkg-json": "wp-scripts lint-pkg-json . --ignorePath .gitignore",
 		"plugin-zip": "npm run transform-readme && git archive --format=zip --output=wp-plugin-template.zip --add-file readme.txt HEAD && zip wp-plugin-template.zip -d README.md",
 		"prepare": "husky",
+		"postinstall": "node tools/setup-ts-eslint-compat.js",
 		"transform-readme": "php tools/transform-readme.php",
 		"verify-version-consistency": "php tools/verify-version-consistency.php"
 	}

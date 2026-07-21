@@ -21,14 +21,14 @@ const path = require( 'path' );
 const schemaCache = new Map();
 
 /**
- * @template {Ajv} T
+ * @template {InstanceType<typeof Ajv>} T
  * @typedef {{ new (options: Object): T }} AjvConstructorType
  */
 
 /**
  * Creates an Ajv instance.
  *
- * @template {Ajv} T
+ * @template {InstanceType<typeof Ajv>} T
  * @param {AjvConstructorType<T>} AjvConstructor Ajv constructor.
  * @return {T} Ajv instance.
  */
